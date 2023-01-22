@@ -43,8 +43,11 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 20px 0px;
-  background-image: linear-gradient(90deg, #34e89e, #0f3443);
-  box-shadow: -1px 3px 9px rgb(0 0 0 / 63%);;
+  /* background-image: linear-gradient(90deg, #34e89e, #0f3443); */
+  /* background-color: rgb(38, 41, 59); */
+  background-color: #0f3443;
+  box-shadow: -1px 3px 9px rgb(0 0 0 / 63%);
+  z-index: 1;
 }
 
 input {
