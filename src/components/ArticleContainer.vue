@@ -8,8 +8,8 @@
     </div>
     <div class="materiaCompleta" v-if="estaAberto">
       <span id="close"><img src="../assets/close.svg" alt="Close" @click="changeView" title="Fechar"></span>
+      <h1><a :href="artigoOriginal">{{ titulo }}</a></h1>
       <img :src="imagem" :alt="titulo">
-      <h1>{{ titulo }}</h1>
       <p>{{ artigoCompleto }}</p>
       <p><small id="author">{{ autor }}</small><small id="dataDePublicacao">{{ new Date(dataDePublicacao).toLocaleString(linguagem) }}</small></p>
     </div>
@@ -29,7 +29,7 @@ export default {
         artigoCompleto: String,
         linguagem: String
     },
-    data() { return { estaAberto: true } },
+    data() { return { estaAberto: false } },
     methods: {
       changeView() { this.estaAberto = !this.estaAberto }
     }
@@ -116,6 +116,7 @@ article {
   border-radius: 100%;
   color: white;
   padding: 5px;
+  cursor: pointer;
 }
 
 .materiaCompleta > img {
@@ -125,10 +126,19 @@ article {
   /* padding: 10px; */
 }
 
+.materiaCompleta a {
+  color: black;
+  text-decoration: none;
+}
+
+.materiaCompleta a:hover {
+  text-decoration: underline;
+}
 .materiaCompleta h1 {
   text-align: center;
   padding: 20px;
   font-size: 2em;
+  color: black;
 }
 
 .materiaCompleta > p {
