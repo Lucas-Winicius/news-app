@@ -40,7 +40,7 @@ export default {
       const pesquisa = document.querySelector('#search').value
       this.linguagem = document.querySelector('#lang').value
 
-      axios(`https://newsapi.org/v2/everything?q=${pesquisa}&apiKey=ccdb7acfb1404b468b5ed475ad5eb28c&language=${this.linguagem}`)
+      axios.get(`https://newsapi.org/v2/everything?q=${pesquisa}&apiKey=ccdb7acfb1404b468b5ed475ad5eb28c&language=${this.linguagem}`)
         .then(response => {
           this.artigos = response.data.articles
         })
