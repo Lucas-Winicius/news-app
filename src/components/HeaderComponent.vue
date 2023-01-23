@@ -34,6 +34,8 @@ h1 {
   padding-left: 3vw;
   color: white;
   text-shadow: 0px 0px 2.5px #000000;
+  user-select: none;
+  pointer-events: none;
 }
 
 header {

@@ -2,45 +2,62 @@
   <article>
     <div class="visualização" v-if="!estaAberto" @click="changeView">
       <h1>{{ titulo }}</h1>
-      <img :src="imagem" :alt="titulo">
+      <img :src="imagem" :alt="titulo" />
       <p>{{ descricao }}</p>
       <small>- {{ autor }}</small>
     </div>
     <div class="materiaCompleta" v-if="estaAberto">
-      <span id="close"><img src="../assets/close.svg" alt="Close" @click="changeView" title="Fechar"></span>
-      <h1><a :href="artigoOriginal">{{ titulo }}</a></h1>
-      <img :src="imagem" :alt="titulo">
+      <span id="close"
+        ><img
+          src="../assets/close.svg"
+          alt="Close"
+          @click="changeView"
+          title="Fechar"
+      /></span>
+      <h1>
+        <a :href="artigoOriginal">{{ titulo }}</a>
+      </h1>
+      <img :src="imagem" :alt="titulo" />
       <p>{{ artigoCompleto }}</p>
-      <p><small id="author">{{ autor }}</small><small id="dataDePublicacao">{{ new Date(dataDePublicacao).toLocaleString(linguagem) }}</small></p>
+      <p>
+        <small id="author">{{ autor }}</small
+        ><small id="dataDePublicacao">{{
+          new Date(dataDePublicacao).toLocaleString(linguagem)
+        }}</small>
+      </p>
     </div>
   </article>
 </template>
 
 <script>
 export default {
-    name: 'ArticleContainer',
-    props: {
-        autor: String,
-        titulo: String,
-        descricao: String,
-        artigoOriginal: String,
-        imagem: String,
-        dataDePublicacao: String,
-        artigoCompleto: String,
-        linguagem: String
+  name: "ArticleContainer",
+  props: {
+    autor: String,
+    titulo: String,
+    descricao: String,
+    artigoOriginal: String,
+    imagem: String,
+    dataDePublicacao: String,
+    artigoCompleto: String,
+    linguagem: String,
+  },
+  data() {
+    return { estaAberto: false };
+  },
+  methods: {
+    changeView() {
+      this.estaAberto = !this.estaAberto;
     },
-    data() { return { estaAberto: false } },
-    methods: {
-      changeView() { this.estaAberto = !this.estaAberto }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 article {
@@ -112,7 +129,7 @@ article {
   right: 20px;
   width: 30px;
   margin: 10px;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 100%;
   color: white;
   padding: 5px;
@@ -152,6 +169,23 @@ article {
 
 .materiaCompleta #dataDePublicacao {
   float: right;
+}
+
+@media screen and (max-width: 1025px) {
+  .visualização {
+    width: 40vw;
+    min-width: 0px;
+  }
+}
+
+@media screen and (max-width: 705px) {
+  
+}
+
+@media screen and (max-width: 495px) {
+  .visualização {
+    width: 80vw;
+  }
 }
 
 </style>
