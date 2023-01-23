@@ -80,4 +80,24 @@ button {
   margin-right: 3vw;
 }
 
+@media screen and (max-width: 635px) {
+  h1 {
+    display: none;
+  }
+  
+  header {
+    justify-content: space-around;
+  }
+
+  button {
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  input {
+    width: 25vw;
+  }
+}
+
 </style>
